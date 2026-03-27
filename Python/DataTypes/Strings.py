@@ -1,0 +1,105 @@
+# Types category :
+# Built in functions in Strings
+# name = "Vamshi"
+# # Type
+# print(type(name))
+# age = 23
+# print(type(age))
+# # print('Your age is:' + age) can't combine a string with an integer using + operator.
+# print('your age is :'+str(age)) # str() converts any data into str data type. Its done to just execute this line it wont change in the memory.
+# # age=str(age) --> this leads to change in memory completely converted from int to str data type.
+
+# Math category :
+'''len()
+len(value) 
+ - built-in function
+ - output: int
+ - counts everything even spaces
+ - returns the number of items in a value 
+ - returns the number of characters in string
+ use case : 
+ - validates input length.
+ - check password quality make sure then password meets the min length requirements.
+'''
+# password = '   123a'
+# print(len(password)) # output : 7 (includes spaces)
+# if len(password) < 8:
+#     print('ypur password is too short!')
+
+
+''' count() :
+count(substring)
+ - str method
+ - output: int
+ - returns how often a word appears in the string.
+   use case :
+    - Word frequency Check --> Counts how many times a specific word appears.
+    - Detects Quality Issues --> count how many unwanted characters in the data.
+'''
+# text = """
+# Python is easy to learn.
+# Python is powerful.
+# many people love python.
+# """
+# print(text.count("Python"))
+
+# Transformations Category -->  used to shape the String
+
+''' replace()
+ - used to replace the specified Character.
+ - replace() is not just for changing the values we can also remove unwanted parts by replacing them with any empty string("")
+ - chained methods are executed in order from left to right.
+   each replace() runs on the result of the one before it.
+ use case:
+  clean Numeric Formats --> replace commas with dots in European-style decimal numbers
+  change phone number format --> replace special characters with something else
+  clean numeric formats --> remove symbols and commas to prepare foe numeric conversions
+'''
+# price = '1234,56'
+# print(price.replace(",", "."))
+# phone = "123-4567-456"
+# print(phone.replace("-", "/"))
+# print(phone.replace("-", ""))
+# price="$1,599.99"
+# print(price.replace("$","").replace(",",""))
+# Challenge - remove format the phone number print with 00 upfornt
+# phoneNumber="+49 (176) 123-4567"
+# print("00"+phoneNumber.replace("+","").replace(" ","").replace("(","").replace(")","").replace("-",""))
+# # Alternative way
+# # import re
+# # clean_number = re.sub(r'\D', '', phoneNumber) #removes everything other than digits.
+
+''' Concatination (+):
+  operator
+  output: string
+  - joins (concatinates) two strings into one.
+  use case:
+  Build file path - build dynamic paths using folder and file variables.
+'''
+# fName = "Vamshi"
+# lName = "S"
+# lName = fName + " " + lName
+# print(lName)
+
+# folder = "c:/users/vamshi/"
+# file = "report.csv"
+# full_file_path = folder+file
+# print(full_file_path)
+
+
+''' f-String
+    - f-string is a formatted string is a modern, super-easy way to format and build strings.
+    - lets us easily put variables and expressions directly inside the string values
+'''
+# name = 'vamshi'
+# age = 23
+# is_student = True
+# # Normal way
+# # Hard to read -There are lot of plus signs and we have to worry about spaces and types
+# # print("My name is " + name + " ,I am " + str(age) + " years old, and Student Status is " + str(is_student))
+# # modern and professional way - f-String way
+# # print(f"My name is {name}, I am {age} years old, and Student status is {is_student}.")
+# # we can also use the expressions inside the f-string
+# # print(f"2 + 3 = {2 + 3}")
+# # Only variables and expressions are allowed inside the {} of the f-string,if we want {} to get displayed use them twice.
+# # print(f"{{Use of curly braces inside f-strings}}")
