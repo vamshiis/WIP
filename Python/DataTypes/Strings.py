@@ -131,5 +131,39 @@ count(substring)
     use case:
     - Style Your Logs - use repeated characters to create clear sections in output.
  '''
-print("ha" * 3)
-print('=' * 50)
+# print("ha" * 3)
+# print('=' * 50)
+
+''' Extraction Category 
+  name = “Hello” —> we think it's treated as one value but python treats it differently each letter is treated as character and they have index.
+  There are 2 types of indexes :
+  - Positive Index --> starts from left ot right and with index value 0
+  - Negative Index --> starts from right to left and with index value -1 
+  - use positive indexes to extract part from left side(start) of string
+  - use negative indexes to extract part from right side(end) of string
+'''
+''' Indexing 
+    Syntax : 'string'[ Index ]
+    Operator
+    output : string
+     To extract the specified index character.
+'''
+# text = "Python"
+# print(text[0])
+# print(text[5])
+# print(text[-1])
+# print(text[-3])
+
+''' Slicing 
+    Syntax : 'string'[ start : end : step ]
+    Operator
+    output : string
+    - Slicing Extracts a part of the string
+    '''
+date = '2026-03-28'
+print(date[0:4])
+# Open-ended slicing : If we leave the start index empty, Python starts from index 0.
+print(date[:4])
+print(date[5:7])
+print(date[8:])
+print(date[8:len(date)])
