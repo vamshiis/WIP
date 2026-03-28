@@ -103,3 +103,33 @@ count(substring)
 # # print(f"2 + 3 = {2 + 3}")
 # # Only variables and expressions are allowed inside the {} of the f-string,if we want {} to get displayed use them twice.
 # # print(f"{{Use of curly braces inside f-strings}}")
+
+''' split()
+    syntax : splut(separator)
+    str method
+    output: list of strings
+    - split() breaks a string into smaller parts.
+    use case:
+    - Break comma-separated values intp individual items.
+    - Separate Date and Time in a single String
+    - Break date,month,year 
+
+'''
+# stamp="2026-03-28 09:31"
+# iden="2026-03-28"
+# print(stamp.split(" "))
+# print(iden.split("-"))
+
+# csv_file="1234,Max,USA,1970-10-05,M"
+# print(csv_file.split(",")) #There are more ways to do it but this is just an example.
+
+''' String Repetation (*)
+    Syntax : 'string' * number
+    Operator
+    output : string
+    - It repeats the string Multiple times.
+    use case:
+    - Style Your Logs - use repeated characters to create clear sections in output.
+ '''
+print("ha" * 3)
+print('=' * 50)
