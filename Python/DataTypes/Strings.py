@@ -105,7 +105,7 @@ count(substring)
 # # print(f"{{Use of curly braces inside f-strings}}")
 
 ''' split()
-    syntax : splut(separator)
+    syntax : split(separator)
     str method
     output: list of strings
     - split() breaks a string into smaller parts.
@@ -156,14 +156,87 @@ count(substring)
 
 ''' Slicing 
     Syntax : 'string'[ start : end : step ]
+    By default consider step size as "1"
     Operator
     output : string
     - Slicing Extracts a part of the string
     '''
-date = '2026-03-28'
-print(date[0:4])
-# Open-ended slicing : If we leave the start index empty, Python starts from index 0.
-print(date[:4])
-print(date[5:7])
-print(date[8:])
-print(date[8:len(date)])
+# date = '2026-03-28'
+# print(date[0:4])
+# # Open-ended slicing : If we leave the start index empty, Python starts from index 0.
+# print(date[:4])
+# print(date[5:7])
+# print(date[8:])
+# print(date[8:len(date)])
+
+# -------------------- cleaning Category -------------------------------
+''' Clean Whitespaces :
+  Strip() , lstrip() and rstrip()
+    - By default cleans whiteSpaces 
+    strip() : 
+    str method
+    output : string
+    - removes spaces from both ends
+    - removes tabs and multiple spaces 
+    - It only removes spaces at the start or end, not in the middle.
+    lstrip() : 
+    str method
+    output : string
+    - removes spaces from left side of a string
+    rstrip() :
+    str method
+    output: string
+    - removes spaces from right side of a string
+- Trim spaces from user Input so always use .strip() method to remove all extra spaces from both ends.  
+'''
+# text = " Engineering"
+# print(text.lstrip())
+# text = "Engineering "
+# print(text.rstrip())
+# text = " Engineering "
+# print(text.strip())
+# # If want to remove other than whitespaces
+# print("######abc######".strip("#"))
+
+# Without looking simply how to identify the whitespaces of the values.
+# Detect extra Spaces :
+# text =" Engineering "
+# print(len(text))
+# print(len(text.strip()))
+# print(len(text) - len(text.strip())) #The Number of whitespaces
+# print(len(text) == len(text.strip())) #To check if the data before strip and after strip are equal
+
+''' Case Conversions :
+    lower():
+    str method 
+    output : string
+    - makes all letters lowercase
+    upper():
+    str method 
+    output : string
+    - makes all letters uppercase
+    use case : 
+    standardize text case - make sure text is always in lowercase.
+    clean data for matching - lowercase all text to prevent case- based mismatches during search or comparisons
+    clean before search - Always trim spaces and lowercase your data and search before matching.
+'''
+# text = "PYTHON"
+# print(text.lower())
+# text="python"
+# print(text.upper())
+# # data conversion and cleaning
+# search = 'Email '.lower().strip()
+# data = ' eMaIl'.lower().strip()
+# print(search == data)
+
+# challenge
+messy_data = "968-maria, (D@t@ Engineering );; 27y  "
+clean_data = messy_data.strip().lower().replace(";", "").replace("@", "a").replace(" ","").replace(",", "").replace("(", "").replace(")", "").replace("-", "")
+# print(clean_data)
+name = clean_data[3 : 8]
+role = clean_data[8 : 12] + " " + clean_data[12 : -3]
+age = clean_data[-3 :- 1]
+# print(age)
+csv_data= name + " , " + role +" , " + age
+print(csv_data)
+print(f"name : {name} | role: {role} | age : {age}")
