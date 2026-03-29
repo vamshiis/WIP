@@ -40,6 +40,7 @@ print(len(text) == len(text.strip())) #To check if the data before strip and aft
     str method 
     output : string
     - makes all letters lowercase
+    
     upper():
     str method 
     output : string
