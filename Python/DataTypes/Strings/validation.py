@@ -1,7 +1,6 @@
-
 # ----------------------- Validation Category -----------------------------
 #  we apply validations to prevent "invalid" or "garbage" data from entering our system 
-''' isalpha() : 
+''' isalpha(): 
        str method
        output : Boolean
        - Check if the string has only letters.
