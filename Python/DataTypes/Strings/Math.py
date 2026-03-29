@@ -13,7 +13,7 @@ len(value)
 password = '   123a'
 print(len(password)) # output : 7 (includes spaces)
 if len(password) < 8:
-    print('ypur password is too short!')
+    print('your password is too short!')
 
 
 ''' count() :
