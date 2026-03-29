@@ -1,0 +1,9 @@
+# VS Code settings
+.vscode/
+
+# Python junk
+__pycache__/
+*.pyc
+
+# Java compiled files
+*.class
