@@ -16,7 +16,7 @@ x = '24'
 print(type(x))
 x = int(x)
 print(type(x))
-print(x*4)
+print(x * 4)
 
 ''' float
    Syntax : float(value)
