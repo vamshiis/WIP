@@ -23,3 +23,9 @@ print(isinstance(x, int))
 x = 70.4
 print(isinstance(x, int))
 print(isinstance(x,float))
+x = ''
+y = ' '
+z = 'vam'
+print(isinstance(x, str)) # True - str
+print(isinstance(y, str)) #True - str
+print(isinstance(z, str)) #True - str
