@@ -144,7 +144,7 @@ else:
 '''why ?
    - Imagine if files_list had 1,000,000 files in it, and the very first two were duplicates.
        our code would still process all 1,000,000 files before checking if a duplicate existed!
-    - but in for - else loop the exact second we see a file we've already checked, we sound the alarm, print "Duplicate found",
+    - but in for-else loop the exact second we see a item we've already checked, we sound the alarm, print "Duplicate found",
         and smash the break button to kill the loop entirely.
      '''
 files_list = ['data.xlsx', 'report.csv',
