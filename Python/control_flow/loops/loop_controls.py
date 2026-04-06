@@ -1,73 +1,73 @@
-# ''' Break : 
-#    - It stops the loop immediately
-#    - It jumps out and ends the loop right away
-# '''
-# names = ['john', 'vamshi', 'sophie', '', 'Edward']
-# for name in names:
-#     if name == "":
-#         print("Empty value detected!")
-#         break
-#     print(f'Name = {name}')
+''' Break : 
+   - It stops the loop immediately
+   - It jumps out and ends the loop right away
+'''
+names = ['john', 'vamshi', 'sophie', '', 'Edward']
+for name in names:
+    if name == "":
+        print("Empty value detected!")
+        break
+    print(f'Name = {name}')
 
-# ''' Continue :
-#     - It skips one loop cycle without stopping the loop.
-#     - It's like Skip this one and go next.
-# '''
-# names = ['john', 'vamshi', 'sophie', '', 'Edward']
-# for name in names:
-#     if name == "":
-#         print("Empty value detected!")
-#         continue
-#     print(f'Name = {name}')
+''' Continue :
+    - It skips one loop cycle without stopping the loop.
+    - It's like Skip this one and go next.
+'''
+names = ['john', 'vamshi', 'sophie', '', 'Edward']
+for name in names:
+    if name == "":
+        print("Empty value detected!")
+        continue
+    print(f'Name = {name}')
 
-# ''' Pass : 
-#     - It is a placeholder where nothing happens.
-#     - For now just keep going do nothing.
-#     - it is just placeholder to be changed later.
-# '''
-# names = ['john', 'vamshi', 'sophie', '', 'Edward']
-# for name in names:
-#     if name == "":
-#         pass  # todo : Handle Empyty value
-#     print(f'Name = {name}')
+''' Pass : 
+    - It is a placeholder where nothing happens.
+    - For now just keep going do nothing.
+    - it is just placeholder to be changed later.
+'''
+names = ['john', 'vamshi', 'sophie', '', 'Edward']
+for name in names:
+    if name == "":
+        pass  # todo : Handle Empyty value
+    print(f'Name = {name}')
 
-# # later to replace the empty value i gonna write something like this
-# # its just like a condition sitting there need to be replaced later
-# names = ['john', 'vamshi', 'sophie', '', 'Edward']
-# for name in names:
-#     if name == "":
-#         name = name.replace("", "unknown")
-#     print(f'Name = {name}')
+# later to replace the empty value I gonna write something like this
+# its just like a placeholder sitting there need to be replaced later
+names = ['john', 'vamshi', 'sophie', '', 'Edward']
+for name in names:
+    if name == "":
+        name = name.replace("", "unknown")
+    print(f'Name = {name}')
 
-# # Break vs Continue:
+# Break vs Continue:
+# Real world Applications:
 
-# # Real world Applications:
+'''Task - 1: 
+Loop through a list of days and print only the working days, skipping the weekends.
+- Avoid Hardcoding values inside for or if. Instead , define them as variables
+'''
+days = ['Mon', 'Sun', 'Wed', 'Tue']
+weekends = ['Sat', 'Sun']
+for day in days:
+    if day in weekends:
+        continue
+    print(f'Workday : {day}')
 
-# '''Task - 1: 
-# Loop through a list of days and print only the working days, skipping the weekends.
-# - Avoid Hardcoding values inside for or if. Instead , define them as variables
-# '''
-# days = ['Mon', 'Sun', 'Wed', 'Tue']
-# weekends = ['Sat', 'Sun']
-# for day in days:
-#     if day in weekends:
-#         continue
-#     print(f'Workday : {day}')
 
-# ''' Task -2 :
-# Scan emails to block unsafe data from entering the system
-# '''
-# emails = [
-#     'xyz@gamil.com',
-#     'abc@outlook.com',
-#     'Select * from users;', #SQL Injection
-#     'vomshiii@gmail.com'
-# ]
-# for email in emails:
-#     if ';' in email:
-#         print('SQL Injection')
-#         break
-#     print(f'Processing Email : {email}')
+''' Task -2 :
+Scan emails to block unsafe data from entering the system
+'''
+emails = [
+    'xyz@gamil.com',
+    'abc@outlook.com',
+    'Select * from users;', #SQL Injection
+    'vomshiii@gmail.com'
+]
+for email in emails:
+    if ';' in email:
+        print('SQL Injection')
+        break
+    print(f'Processing Email : {email}')
 
 # for - else :
 # It executes after the completion of for loop.
@@ -81,6 +81,8 @@ else:
   - having else is useless we can simply go with print statement after for loop then also it will work similiar.
   - but real usage comes when we use the break statement in the for loop then the else block after the for loop makes sense. 
 '''
+
+# for - else +  break statement
 items = [1, 3, 5, 7]
 for i in items:
     if i % 2 == 0:
@@ -110,7 +112,6 @@ else:
 # We are using break & else in order to search for something and validate the data.
 
 # Task - 2 : Check if all the files are CSV 
-
 files=['data1.csv','data2.csv','data3.pdf','data4.csv']
 
 for file in files:
@@ -140,7 +141,7 @@ for file in files_list:
 else:
     print('All files are unique')
 
-# Not a Efficient Code 
+# Not a Efficient Code : 
 '''why ?
    - Imagine if files_list had 1,000,000 files in it, and the very first two were duplicates.
        our code would still process all 1,000,000 files before checking if a duplicate existed!
