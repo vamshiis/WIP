@@ -30,16 +30,16 @@ else:
     - Here the condition should turn naturally false.
     - Then the else block will be executed
 '''
-# attempts = 0
-# while attempts < 3:
-#     print(f'Attempt number - {attempts + 1}')
-#     answer = input('Do you Agree? (yes/no): ')
-#     if answer == 'yes':
-#         print('Glad we are on the same page')
-#         break
-#     attempts += 1
-# else:
-#     print("3 strikes, You are out!")
+attempts = 0
+while attempts < 3:
+    print(f'Attempt number - {attempts + 1}')
+    answer = input('Do you Agree? (yes/no): ')
+    if answer == 'yes':
+        print('Glad we are on the same page')
+        break
+    attempts += 1
+else:
+    print("3 strikes, You are out!")
 
 ''' 2. Forced Termination :
         - If the break statement is hit the loops have forcefully ended not naturally.
