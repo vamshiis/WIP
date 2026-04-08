@@ -210,3 +210,63 @@
 # print(country)
 # print(*_) # Skipped Part
 
+'''  Reference Aliasing :
+- Unpacking copies the address, not the data. Whether the link stays or breaks depends on if you mutate or reassign.
+- we can mutate or reasign the 2D - Data Structures like Nested List from unpacking them.
+- we can only reassign for the 1D - Data Structures Like Normal lists
+- unpack variables holds the reference address of items object.
+- so if we change i.e reassign a value to the unpacked variable it will break the link of original list value's object.
+- now the unpacked variable will be  pointing to new values object which the list doesn't have idea of.
+- only mutable data can be modified which are list, dict, Sets 
+- integers, Strings, Tuples are immutable objects if we unpacl and 
+'''
+''' 2D - DS Nested List
+    - we can apply append and reassign for 2D nested lists.
+    - while append makes the list and unpacked variable to see the change in the corresponding pointing object 
+    - The reassign makes the unpacked variable to point to new object, but still the list sees it old data 
+    - To work safely we can copy the item with .copy() and work safely, anyhow this will be helpful to not use append() directly on the data.
+'''
+list = [[1, 2, 3], [4, 5, 6]]
+first, middle = list
+print(f'list item original pointing address ---> {id(list[0])}')
+print(f'Unpacked variable pointing address  ---> {id(first)}')
+
+# Mutate using unpacked variable - using append(), update() ..
+first.append(['person1', 'person2'])
+# Here As the Addresses are same it can go inside the object and change the pointing objects value.
+# This will makes changes reflect in both list[0] and unpacked vairable . same is being printed below
+print(f'''Appended data using Unpacked variable : 
+               Value at lis[0]                ---> {list[0]} 
+               Value of the unpacked variable ---> {first}
+''')
+
+# Reassign - Here we make the unpacked variable to point to different object rather than pointing to the unpacked value from list
+# The address of before reassign and after reassign operation differes for the unpacked variable first in this case.
+first = [8, 2]
+print(f'''The re-assigned unpacked variable 
+                address(changed)    ---> {id(first)}  
+                value(changed)      ---> {first}
+''')
+print(f'''The list item\'s at index 0 
+       address(unchanged)           ---> {id(list[0])} 
+       and it\'s value(unchanged)    ---> {list[0]}
+''')
+
+# 1D - DS Normal List
+# Can't perform mutation on Integers,Strings bascically on the  1D DS we can't apply mutation operations.
+list = [1, 2, 3]
+first, middle, last = list
+
+print(f'list item original pointing address ---> {id(list[0])}')
+print(f'Unpacked variable pointing address  ---> {id(first)}')
+
+# Reassignment - Chnages the unpacked variable Pointing address to the object and its value.
+first = 5
+print(f'''The re-assigned unpacked variable 
+                address(changed)    ---> {id(first)}  
+                value(changed)      ---> {first}
+''')
+print(f'''The list item\'s at index 0 
+       address(unchanged)           ---> {id(list[0])} 
+       and it\'s value(unchanged)    ---> {list[0]}
+''')
