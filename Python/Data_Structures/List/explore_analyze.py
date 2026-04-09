@@ -1,272 +1,214 @@
-# ''' List :
-#     - List is a ordered collection of Items
-#     - List's are changeable
-#     - Allows Duplicates
-#     - Lists are like no rules can do whatever we want do with the data
-#     - This are very common and widely used in Python
-# '''
-# ''' ---------- How to Create ? ---------'''
-# # Empty list
-# empty = []
-# print(empty)
-# print(type(empty))
-
-# # ---- Lists with similiar data types and manual item entry ----
-# # List with String items --> Adding items to the list manually there can be other ways too to add items.
-# names = ['vamshi', 'vamsh', 'john']
-# print(names)
-# print(type(names))
-
-# # List with Number's item's
-# numbers = [1, 2, 3]
-# print(numbers)
-
-# # ---- Lists with Mixed Data Types ------
-# mixed_list = [1, 'a', 'True', None]
-# print(mixed_list)
-
-# ''' Creation of List with Built-in function list()
-#     list(value)
-#     built - in function
-#     output : list
-#     - Convert an iterable (sequence) into a list
-# '''
-# empty = list()
-# print(empty)
-
-# letters = list('Vamshi')
-# print(letters)
-
-
-# numbers = list(range(5))
-# print(numbers)
-# print(len(numbers))
-
-# # --------- Nested Lists - Matrix --------------
-# # Similiar Data Types Nested List
-# matrix = [
-#     [1, 2, 2],
-#     [3, 2, 4],
-#     [7, 9, 0]
-# ]
-# print(matrix)
-# print(type(matrix))
-
-# # mixed Nested List
-# mixed_matrix = [
-#     [1, 2, 3],
-#     ['vamshi', 'john', 'unknown'],
-#     [True, False]
-# ]
-# print(mixed_matrix)
-
-# ''' --------------- Access & Read ----------------'''
-
-# lst = [1, 2, 3, 4, 5]
-# # To access and read all items in the list
-# print(lst)
-
-# ''' Indexing - used to retrive only 1 value where we need to specify index value.
-#     To Access Only specific item from the list
-#     - For accessing only 1 item  from list we need the Indexing Technique
-#     - positive index from left to right and starts from 0,1,2,....
-#     - negative index from right to left and starts from -1,-2,-3,....
-# '''
-# print(lst[1])  # positive index number for accessing from left to right
-# print(lst[-1])  # Negative index number for accessing from right to left
-
-# ------- Access and read Nested List (Matrix) ----------
-
-# matrix = [
-#     [1, 2, 3],
-#     [4, 5, 6],
-#     [7, 8, 9]
-# ]
-
-# # Get whole matrix
-# print(matrix)
-# # Get only one row
-# print(matrix[1])  # Access 2nd row of matrix
-# print(matrix[-1]) # Access last row of matrix
-# # Get only one value
-# print(matrix[-1][-1])
-
-# ''' Slicing - To retrieve multiple Items
-#     - We have to have boundaries which are start and end indexes for slicing.
-#     - In slicing stop Index is not inclusive
-#     - In slicing if we want the start index  to be " 0 " then we can skip it as it is default in slicing [ : end index]
-#     - In slicing if we want the end index  to be " -1 or len(variable) - 1 " then we can skip it as it is default in slicing [ Start index : ]
-#     - [ : ] this brings entire list where no start and end indexes given, it treats the default values for indexes in this case.
-# '''
-# # Slicing in normal List
-# lst = ['a', 'b', 'c', 'd', 'e']
-# # Get the first two items
-# print(lst[:2])
-# # Get the last two items from the list
-# print(lst[-2:])
-# # Get whole list
-# print(lst[:])
-
-# # Slicing in Nested List (Matrix)
-# matrix = [
-#     [1, 2, 3],
-#     [4, 5, 6],
-#     [7, 8, 9]
-# ]
-
-# #  Get first two rows
-# print(matrix[:2])
-# # Get last two rows
-# print(matrix[1:])
-# # Get first 2 items from the list 3 of the matrix list
-# print(matrix[2][:2]) #Remeber : Cinema seat search - To search for a target values specify the row number first then, apply slicing to it.
-
-# --------------------- How to Unpack ?? -------------------
-# ''' Unpacking List's
-#     - So far we placed multiple items into the list and packed them.
-#     - so now we can now unpack the items and use them wisely.
-
-#     Why we need to Unpack things??
-#     - lets say we have a personal info with items as name, age , role , city etc.
-#     - Each item has its own importance and we can apply various operations on the different items.
-#     - To use them differently first we need to hold them in separate variable so we can easily apply the corresponding data types operations.
-# '''
-# person = ['john', 22, 'Data Engineer', 'paris']
-
-# # Wwithout Unpacking
-# # using only indexes makes code long and hard to extend
-# name = person[0]
-# age = person[1]
-# role = person[2]
-# country = person[3]
-
-# # With Unpacking
-# # Unpacking list of variables, sepeareted by commas
-# # Rule : Variable order must match the list values order
-# # Unoacking is clean, easy,  and makes code simple to extend
-# name, age, role, country = person
-# print(role)
-# print(age)
-
-# ''' Rest Collector - Asterisk * 
-#     - if we want to unpack things and think to only unpack specific start or end or both and move rest into separate list we need to use Asterisk (*)
-#     - * Asterisk Stores the Rest in New list 
-#     - Python gonna assign specified variable with that value and take everything leftover into new list.
-#     - Rule : only one asterisk(*) is allowed in unpacking
-# '''
-# # first and last items matters and rest everything in middle can be stored or unpacked into another list
-# name, *details, country = person
-
-# print(name)
-# print(details)
-
-# # Start item matters and rest can be moved into details list while unpacking
-# # for this we need to specify the variable for first item and asterisk *
-# # Be careful with the order of values if in future we change the order the variable assignment changes in unpacking
-# name, *details = person
-# print(name)
-# print(details)
-
-# # last item is important and rest everything can be moved into details
-# *details, country = person
-# print(details)
-# print(country)
-
-# # Rules fpr unpacking
-
-# # Nr. of variables must match the values exactly - not less, not more
-# numbers = [1, 2, 3, 4]
-# first, second, third, last = numbers
-
-# # Note : *Asterisk collects leftovers, and it’s fine if there are none
-# bags = ['plastic']
-# variant_1, *rest = bags
-# print(variant_1)
-# print(rest)  # Empty list
-
-# #  Note : Can Unpack any sequence (list, tuples, strings, etc.)
-# message = 'hello'
-# first, *rest = message
-# print(first)
-# print(rest)
-
-# ''' Skipping Items underscore "_" 
-#     unpacking using "_"
-#     - If the value is not that important at the time of unpack we can simply use _ to skip that item and move ahead.
-#     - we can use multiple underscores
-# '''
-# person = ['john', 22, 'Data Engineer', 'paris']
-# # Unpack only name, role rest eveything skip it. 
-# name, _, role, _ = person
-
-# ''' power of Asterisk(*) and underscore(_)
-#     - If we want start , end items and the middle items are so long that we end up using more _ to skip items.
-#     - Instead we can combine the power of Asterisk(*) with the underscore(_) 
-#     - we can use * and move to new list but we want to skip them, so * gonna take middle part instead of storing in new list we use "_" to skip complete middle part now.
-# '''
-# # Unpack first and last value , but skip all values in middle
-# name , *_ , country = person
-# print(name)
-# print(country)
-# print(*_) # Skipped Part
-
-'''  Reference Aliasing :
-- Unpacking copies the address, not the data. Whether the link stays or breaks depends on if you mutate or reassign.
-- we can mutate or reasign the 2D - Data Structures like Nested List from unpacking them.
-- we can only reassign for the 1D - Data Structures Like Normal lists
-- unpack variables holds the reference address of items object.
-- so if we change i.e reassign a value to the unpacked variable it will break the link of original list value's object.
-- now the unpacked variable will be  pointing to new values object which the list doesn't have idea of.
-- only mutable data can be modified which are list, dict, Sets 
-- integers, Strings, Tuples are immutable objects if we unpacl and 
+# -------------------------- Explore and Analyze ---------------------------
+''' 
+    - Before doing anything complex we need to first understand the content of our data so, we need to analyze the data we have.
+    - If we have data we need to explore and analyze
+    - we need to start asking quick questions like
+    - what is the len of list? , what is highest and lowest value in the list ? , do list satisfy or pass or data quality checks? etc.
+    - we have lot of functions to explore and analyze the data some are :
+         - max() , min() , sum() , len() --> this will help us analyze the data.
+    - To have the completness & Exsistence Check we have
+         - all() - if all values are true 
+         - any() - if any value is true
+    - We also have Methods to search and count
+       -  variable.count() , variable.index()     
+    - we also have membership and identity operators to check something
+       - in operator - to check if it exsist!!
+       - is operator - to check if same objects
+    - we can also use comparison operators 
+       - '==' and '>' operators
 '''
-''' 2D - DS Nested List
-    - we can apply append and reassign for 2D nested lists.
-    - while append makes the list and unpacked variable to see the change in the corresponding pointing object 
-    - The reassign makes the unpacked variable to point to new object, but still the list sees it old data 
-    - To work safely we can copy the item with .copy() and work safely, anyhow this will be helpful to not use append() directly on the data.
+
+numbers = [1, 2, 3, 4, 5]
+# Functions:
+''' max() : 
+    - Function
+    - output : List Item
+    - Find the highest Value
 '''
-list = [[1, 2, 3], [4, 5, 6]]
-first, middle = list
-print(f'list item original pointing address ---> {id(list[0])}')
-print(f'Unpacked variable pointing address  ---> {id(first)}')
+print(f'max : {max(numbers)}')
+''' min() : 
+    - Function
+    - output : List Item
+    - Find the lowest Value
+'''
+print(f'min : {min(numbers)}')
 
-# Mutate using unpacked variable - using append(), update() ..
-first.append(['person1', 'person2'])
-# Here As the Addresses are same it can go inside the object and change the pointing objects value.
-# This will makes changes reflect in both list[0] and unpacked vairable . same is being printed below
-print(f'''Appended data using Unpacked variable : 
-               Value at lis[0]                ---> {list[0]} 
-               Value of the unpacked variable ---> {first}
-''')
+''' sum() - Aggregate function
+    - Function
+    - output : number
+    - Finds the total by summing all values.
+'''
+print(f'Sum : {sum(numbers)}')
 
-# Reassign - Here we make the unpacked variable to point to different object rather than pointing to the unpacked value from list
-# The address of before reassign and after reassign operation differes for the unpacked variable first in this case.
-first = [8, 2]
-print(f'''The re-assigned unpacked variable 
-                address(changed)    ---> {id(first)}  
-                value(changed)      ---> {first}
-''')
-print(f'''The list item\'s at index 0 
-       address(unchanged)           ---> {id(list[0])} 
-       and it\'s value(unchanged)    ---> {list[0]}
-''')
+''' len() 
+    - Function 
+    - output : number
+    - finds the length of a list (number of items)
+'''
+print(f'Length : {len(numbers)}')
 
-# 1D - DS Normal List
-# Can't perform mutation on Integers,Strings bascically on the  1D DS we can't apply mutation operations.
-list = [1, 2, 3]
-first, middle, last = list
+''' all() 
+    - Function
+    - output : True/False
+    - returns True if all values are True
+'''
+print(f'All : {all(numbers)}')
+# Here 0 is considered as no value and it is False in boolean equivalence
+print(f'All : {all([1, 0, 2])}')
+# Here '' is also considered as no value so it becomes false.
+print(f'All : {all(['a', '', 'c'])}')
+print(f'All : {all(['a', 'b', 'c'])}')
 
-print(f'list item original pointing address ---> {id(list[0])}')
-print(f'Unpacked variable pointing address  ---> {id(first)}')
+''' any()
+    - Function
+    - output : True/False
+    - returns True if any one value is True.
+'''
+print(f'Any : {any(numbers)}')
+print(f'Any : {any([1, 0, 2])}')
+print(f'Any : {any(['a', '', 'c'])}')
+# Returns False at least one value should exsist
+print(f'Any : {any(['', '', ''])}')
+# Returns False at least one value should exsist
+print(f'Any : {any([0, 0, 0])}')
 
-# Reassignment - Chnages the unpacked variable Pointing address to the object and its value.
-first = 5
-print(f'''The re-assigned unpacked variable 
-                address(changed)    ---> {id(first)}  
-                value(changed)      ---> {first}
-''')
-print(f'''The list item\'s at index 0 
-       address(unchanged)           ---> {id(list[0])} 
-       and it\'s value(unchanged)    ---> {list[0]}
-''')
+''' count() :
+    - Syntax : Variable.count(value to count)
+    - Method
+    - output : Number
+    - return how many times a value appears in the list.
+    - useful to find if the specified value is unique or duplicate in the given list.
+'''
+print(f'Count : {numbers.count(5)}')
+
+''' index() :
+    - Syntax : variable.index(value to search)
+    - Method
+    - output : Number (index value)
+    - returns the position of the first occurance of a value
+'''
+print(f'Index : {numbers.index(5)}')
+
+''' in :
+    - Operator
+    - output: True / False
+    - Checks if a value exists in a sequence
+'''
+print(4 in numbers)
+print(8 in numbers)
+print(8 not in numbers)
+
+
+
+''' Comparison operators :  
+    - The first element are compared, if they're equal,Python moves to the next element
+    **** Golden Rule for comparison operators *****
+    - Think of the comparison as a Race to the first difference:
+    - Priority 1 (Value): The moment a number is bigger/smaller than its partner at the same index, the race ends.
+    - Priority 2 (Length): If the race ends in a tie (all items match), the "Longer" list is crowned the winner of the > comparison, 
+                           and the "Shorter" list is the winner of the < comparison.
+
+'''
+# '==' - checks if two variables values are identical.
+list1 = [1, 2, 3]
+list2 = [1, 2, 3]
+print(list1 == list2)
+
+list1 = [1, 2, 3, 4]
+list2 = [1, 2, 3]
+print(list1 == list2)
+
+# using < or >
+# Same sizes list
+''' Rule 1 : The first Difference
+     - Python compares items at the same index.
+     - The moment it finds two items that are not equal, the comparison ends.
+     - Nothing else in the list matters after this point.
+'''
+list1 = [9, 2, 3]
+list2 = [11, 4, 3]
+print(list1 < list2)  # compares 9 < 11 --True , so output is True
+
+list1 = [1, 2, 5]
+list2 = [1, 2, 3]
+# Compare 1 < 1 = equal --> next values 2 < 2 = equal -->next values 5 < 3 = False
+print(list1 < list2)
+
+list1 = [1, 2, 5]
+list2 = [1, 2, 5]
+print(list1 < list2) # it always checks on condition for rach index value and then marks them false if equal , so this are identical but list1 < list2 is false
+
+''' Rule 2 : The Prefix Rule (length priority)
+    - If one list is 'prefix' of other (eg. [1, 2] vs [1, 2, 5])  the shorter list will be considered smaller.   
+    - working :
+       - Iterative comparison : Python checks list1[0] vs list2[0] if they are equal moves to index 1
+       - Next Item : compares list1[1] vs list2[1] if they are too equal moves to index2
+       - Exhaustion check : The list1 has ended. It sees list2 still has items left at index 2 (5),while list1 has nothing left.
+       - The decision : - In lexicographical logic, "nothing" is always less than "something".
+                        - Since list1 ran out of items first and all its existing items matched, 
+                          it is automatically deemed the smaller list. 
+       - If all compared elements match, the shorter sequence is always considered less than the longer sequence. 
+       - This is exactly how words are sorted in a dictionary: "app" comes before "apple" because it is a prefix that ends sooner.
+       *** Most Important criteria *** : The list1 should be prefix of list2 then only this rule apply
+'''
+list1 = [1, 2]
+list2 = [1, 2, 5]
+# we are asking: "Is list1 a shorter prefix or does it have a smaller value at the first point of difference?"
+print(list1 < list2) # True - sorts like ascending order
+
+# Here the comparison operator changes to compare longer list 
+list1 = [1, 2, 5, 7]
+list2 = [1, 2, 5]
+# we are asking: "Is list1 longer than its prefix or does it have a larger value at the first point of difference?" 
+print(list1 > list2) # True - sorts like descending order gives higher list forst upon comparison
+
+list1=[9]
+list2=[1,2]
+print(list1 < list2) # Here it is not prefix so it compares values first 9 < 1 (no) - so false 
+
+# Tricker question is empty list [] < [1] list with one item
+print([] < [9])  #True
+'''
+   - first compare value : no value of first list so no comaprison happens 
+   - next check length : empty list length is 0 and item list length is 1 so, here 0 < 1 (lengths) yes so output : True
+   - if same question asked as [] > [1,2,3] its false.
+   - checks values there is no value in list1 so no comparison happens.
+   - checks the length list1 len = 0 and list2 len = 3 --> 0 > 3 --> false 
+'''
+print([] > [1,2,3]) #False
+
+''' Rule 3: Deep Comparison (Nested Sequence)
+    - If the items being compared are themselves lists, 
+    Python "steps inside" them to perform the same checks recursively.
+'''
+list_a = [1,[2,2]]
+list_b = [1,[2,4]]
+print(list_a < list_b) #True
+
+''' Rule 4 : Type Strictness 
+    - You cannot compare items if Python doesn't know how to relate them (e.g., String vs Integer). 
+    - This will crash your program.
+'''
+list_a = [1,'hello']
+list_b = [1,3]
+# print(list_a < list_b)
+# compare 1 < 1 but they are equal, 
+# next goes after hello < 3 wooo what's this nahh Type Error cant use < between str and int instances.
+
+# If two lists are identical and if we check < or > it returns false 
+list_z = [1,2,3]
+list_y = [1,2,3]
+print(list_z > list_y)  #False
+print(list_z < list_y)  #False
+print(list_z == list_y) #True
+
+''' is Operator :
+    - It checks the address of the variables to which object they are pointing.
+'''
+list_1 = [1,2,3]
+list_2 = [1,2,3]
+print(list_1 is list_2) #False list_1 address can be somthing 4567 and list_2's 67800 so that's why its false even if values are same
+
+list_1 = [1,2,3]
+list_2 = list_1
+print(list_1 is list_2) #True here list_2 copies the address of list_1 , so now they both have same addresses 
