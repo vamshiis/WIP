@@ -30,5 +30,19 @@ print(f' Copy    : {letters_copy}')
 
 
 ''' Copying List (Shallow Copy)
-    -
+    - As we seen in previous concept we were getting the original list itself for playing around, but we need the real copy of original data.
+    - In order to do it we use `.copy()` method which creates a new container a new list that is independent from the original list, 
+       where each variable the original and new variable will be pointing to it's respective list objects unlike how “=” was behaving.
+    - now they are independent the new variable list mutation will not effect the original variable list.
+    copy() :
+    Method
+    output : list 
+    - creates a separate list in the memory
 '''
+numbers = [1,2,3,4]
+copy_numbers = numbers.copy()
+# Real checking with mutation :
+copy_numbers.append(8)
+print(f' Original: {numbers}')
+print(f' Copy    : {copy_numbers}')
+# print(numbers.copy().pop())
