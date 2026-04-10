@@ -1,3 +1,4 @@
+import copy
 ''' Copying List
     - In real data projects developers don't directly work on the original data.
     - Maybe we will be expermenting or not sure what we do at inital stages, after N tries we will do what we need always we do trial & error thing.
@@ -46,3 +47,92 @@ copy_numbers.append(8)
 print(f' Original: {numbers}')
 print(f' Copy    : {copy_numbers}')
 # print(numbers.copy().pop())
+
+''' Copying List - Deep Copy 
+    
+
+'''
+matrix = [
+    [1,2],
+    [3,4]
+]
+# using shallow copy (.copy() method)
+matrix_copy = matrix.copy()
+# Remove last list from original nested list
+matrix.pop()
+# Add a new item in the 1st row of the copied list
+matrix_copy[0].append(10)
+print('original:', matrix)
+print('Copy    :', matrix_copy)
+# Confirmation of copied list or not
+print('original ID:', id(matrix))
+print('Copy ID    :', id(matrix_copy))
+
+''' Using the Deep copy (functions deepcopy() and copy())
+    - Inside the copy module we have 2 functions 
+        1. copy()
+        2. deepcopy()
+
+    deepcopy() : 
+     function
+     import from copy module
+     Syntax : module_name.function_name(variable/value)
+      - so now if we use `deepcopy()` its gonna go layer by layer and copy how deep is our nested list.
+      - so this makes the issue of shallow copy solved where the
+      - `top level is Independent and a real copy`
+      - `Deeper level is also a Independent and a real copy`
+      - so Deep copy is the safest way to create a copy of nested lists
+'''
+matrix = [
+    [1, 2],
+    [3, 4]
+]
+matrix_copy = copy.deepcopy(matrix)
+# # Remove the last row from the nested list
+matrix.pop()
+# # Add a new item in the 1st row of the copied list
+# # copy.deepcopy() creates a true, independent copy for all levels
+matrix_copy[0].append(8)
+print('original:', matrix)
+print('Copy    :', matrix_copy)
+# # Confirmation of copied list or not
+# print('original ID:', id(matrix))
+# print('Copy ID    :', id(matrix_copy))
+
+''' copy() :
+    function
+    import from copy module
+    Syntax : module_name.function_name(variable/value)
+    - similiar to shallow copy method copies the top level only
+    - copy.copy() is more general than list.copy(), not limited to lists
+    - useful for the Data structures which doesnt have their own method of copy()
+    - always go with the methods if they exsist if not use functions.
+    - as list has the copy() method use that its gonna be faster than function copy()
+'''
+# we can have done this too but this is same as shallow copy
+# copy.copy() creates a shallow copy just like the method copy()
+# matrix.copy = copy.copy(matrix)
+
+''' is operator :
+    - use is operator to confirm if the variables are independent(i.e real copy) or shared(i.e. shared copy )
+    
+'''
+original = [
+    [1,2],
+    [3,4]
+]
+
+# Tip : use the is operator to check if the copies are truly independent
+# Assignment "="
+copy1 = original
+print("Same Object?", original is copy1,"\n")
+
+# Shallow Copy
+copy2 = original.copy()
+print("Same Object?", original is copy2)
+print("Shared List?", original[0] is copy2[0],"\n")
+
+# Deep copy
+copy3 = copy.deepcopy(original)
+print("Same Object?", original is copy2)
+print("Shared List?", original[0] is copy2[0], "\n")
