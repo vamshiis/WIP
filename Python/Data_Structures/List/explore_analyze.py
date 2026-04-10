@@ -99,7 +99,6 @@ print(8 in numbers)
 print(8 not in numbers)
 
 
-
 ''' Comparison operators :  
     - The first element are compared, if they're equal,Python moves to the next element
     **** Golden Rule for comparison operators *****
@@ -154,17 +153,17 @@ print(list1 < list2) # it always checks on condition for rach index value and th
 list1 = [1, 2]
 list2 = [1, 2, 5]
 # we are asking: "Is list1 a shorter prefix or does it have a smaller value at the first point of difference?"
-print(list1 < list2) # True - sorts like ascending order
+print(list1 < list2) # True - sorts like ascending order gives list with lesser items first upon compariosn if the list is prefix
 
 # Here the comparison operator changes to compare longer list 
 list1 = [1, 2, 5, 7]
 list2 = [1, 2, 5]
 # we are asking: "Is list1 longer than its prefix or does it have a larger value at the first point of difference?" 
-print(list1 > list2) # True - sorts like descending order gives higher list forst upon comparison
+print(list1 > list2) # True - sorts like descending order gives list with more items first upon comparison if the list is prefix
 
 list1=[9]
 list2=[1,2]
-print(list1 < list2) # Here it is not prefix so it compares values first 9 < 1 (no) - so false 
+print('check',list1 < list2) # Here it is not prefix so it compares values first 9 < 1 (no) - so false 
 
 # Tricker question is empty list [] < [1] list with one item
 print([] < [9])  #True
