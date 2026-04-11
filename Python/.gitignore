@@ -1,0 +1,49 @@
+# ==========================================
+# Python Specific
+# ==========================================
+
+# Byte-compiled / optimized / DLL files
+# (Git doesn't need to track the machine code Python generates)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================================
+# Environments
+# ==========================================
+
+# Virtual Environments (NEVER commit these!)
+venv/
+env/
+.venv/
+Pipfile.lock
+
+# ==========================================
+# IDEs and Editors
+# ==========================================
+
+# VS Code settings and history (keeps your personal setup private)
+.vscode/
+
+# PyCharm / IntelliJ settings
+.idea/
+
+# ==========================================
+# Testing & Data
+# ==========================================
+
+# Pytest and coverage caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# ==========================================
+# OS Generated Files
+# ==========================================
+
+# Mac/Windows hidden files
+.DS_Store
+Thumbs.db
