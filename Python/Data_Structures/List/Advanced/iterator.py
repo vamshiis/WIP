@@ -50,3 +50,14 @@ for i, l in enumerate(letters):
 employees = ['anna', 'bishop', 'catlyn']
 for id, employee in enumerate(employees, start=101):
     print(id, employee)
+
+''' reversed() :
+    function
+    Syntax : reversed(Iterable)
+    output : Iterator
+    - Returns an iterator that flips the data order
+'''
+letters = ['a', 'b', 'c']
+# print(list(reversed(letters)))
+for l in reversed(letters):
+    print(l)
