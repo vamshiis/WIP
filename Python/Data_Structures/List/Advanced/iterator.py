@@ -15,7 +15,7 @@ print(new) # Iterator object address
 print(next(new)) #1
 print(next(new)) #2
 print(next(new)) #3
-print(next(new)) #StopIteration
+# print(next(new)) #StopIteration
 
 ''' enumerate() :
     function
@@ -120,3 +120,33 @@ for name in transform:
 # If In-line Iterator is made for every loop  then Iterator is gonna be created and generates items.
 for name in transform:
     print(name)
+
+''' Unwanted Data - filtering usage
+    - Sometimes users might be entering stuff into data which we don't expect like into the list of String values they might be entering a Boolean an integer.
+    - If we find we will think to use remove()  method and try to clean the data from unwanted things.
+    - But for how long we gonna do it if there are more such things inside the data we can't write the N numbers of remove for each specific type of bad entry 
+      we need an automate which make this cleanup easy for us.
+    - Instead we need a filter to filter out the data for us , where we build rules what to filter out.
+'''
+''' filter() : 
+    Function
+    Syntax : filter(function,Iterable)
+    output : Filter Iterator Object.
+    - filters each times based on the filter function rule we define.
+    - filter() is perfect for cleaning up data in the data structures.
+'''
+letters = ['a','b','',None,'c',False]
+# clean up the list by removing unvalid data
+# print(list(filter(None, letters)))
+''' None : removes all falsy values like 0,"", or False.
+    bool : works the same! it filter out all falsy values.
+'''
+filtered_data = filter(None,letters)
+for item in filtered_data:
+    print(item)
+
+# Keep only letters(alphebetic) items
+items = ['sql','Fabric','123','Python','2323']
+# print(list(filter(str.isalpha,items)))
+for item in filter(str.isalpha, items):
+    print(item)
