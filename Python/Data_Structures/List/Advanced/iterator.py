@@ -74,3 +74,49 @@ numbers = [1, 2, 3]
 # print(list(zip(numbers, letters)))
 for package in zip(numbers, letters, strict=True):
     print(package)
+
+
+''' Advanced Iterators :
+    - sometimes we want to do the data transformations like change the lowercase item in list to uppercase
+    - using for loop : Loop through items and for each item apply the method upper().
+    - In python we have a samrter solution to do this instead,
+    - Map() function :  
+      Syntax : map(function, Iterables, strict = False(default))
+                      which takes 2 arguments 
+                       1. function - which we want to repeat for each item
+                       2. Iterable's - which contains the items
+        - for each item it applies the function and throws out the item which is transformed
+        - so the output not gonna be a list it will a map iterator object which can be used in for loop or we can use list() to get transformed items.
+        - Map gonna take the list apply the transformation that we define for each item.   
+        - Has Strict = False as default which ensure mapping Stops when the shortest iterable is exhausted.
+        - If strict = True and one of the arguments is exhausted before the others, raise a ValueError.
+        *** Note *** : 
+        Map is fast, clean way to do data transformation.       
+'''
+
+# calculate the values from both list as base and power using map() function :
+base = [2, 3, 4]
+power = [2, 3, 4]
+for result in map(math.pow, base, power, strict=True):
+    print(result)
+
+# Transform the data into upper case and stor them in list
+letters = ['a', 'b', 'c']
+print(list(map(str.upper, letters)))
+
+# Transform list item to to integers and store them in list.
+numbers = ['1', '2', '3']
+print(list(map(int, numbers)))
+
+# Transform the data by Cleaning up the list by removing all unwanted spaces
+names = ['     vamshi', 'joe ', '    michael']
+# print(list(map(str.strip,names)))
+transform = map(str.strip, names)
+for name in transform:
+    print(name)
+
+# It won't be executed as same iterator "transform" is being used to loop.
+# If iterator made outside the for loop it works only for one loop
+# If In-line Iterator is made for every loop  then Iterator is gonna be created and generates items.
+for name in transform:
+    print(name)
