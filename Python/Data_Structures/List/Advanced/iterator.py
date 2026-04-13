@@ -61,3 +61,16 @@ letters = ['a', 'b', 'c']
 # print(list(reversed(letters)))
 for l in reversed(letters):
     print(l)
+
+''' Zip :
+    function
+    Syntax : zip(iterable_1,iterable_2,...,strict = False)
+    output : Iterator
+    - combines two or more sequences into pairs(tuples)
+    - default strict value False if True all the iterable items should be same.
+'''
+letters = ['a', 'b', 'c']
+numbers = [1, 2, 3]
+# print(list(zip(numbers, letters)))
+for package in zip(numbers, letters, strict=True):
+    print(package)
