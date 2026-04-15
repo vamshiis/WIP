@@ -87,3 +87,28 @@ prices = [120, 30, 300, 80]
 print(list(filter(lambda p: p >= 100, prices)))
 
 
+''' Nested Data structures + lambdas + tools (map() / filter())
+    - In matrix iteration happens one row at a time.
+    - so everytime you must pass the row as input to the lambda function 
+      and in expression you target a value with index number and perform operations on it.
+'''
+# Task : Keep only students with score higher than 70
+students = [
+    ['Maria', 85],
+    ['Kumar', 20],
+    ['Max', 35]
+]
+#  lambda for nested list : Always pass the row as input to Lambda function
+#   lambda row: row[1] > 70
+# here always a row is sent and in expression i can need to check the index 1 value.
+print(list(filter(lambda row: row[1] > 70, students)))
+
+
+# Challenge - Keep only Studnets with names starting with 'M'
+students = [
+    ['Maria', 85],
+    ['Kumar', 20],
+    ['Max', 35]
+]
+
+print(list(filter(lambda row: row[0].lower().startswith('m'), students)))
