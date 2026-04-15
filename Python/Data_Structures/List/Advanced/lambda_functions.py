@@ -47,3 +47,31 @@ print(check("n"))
 print(check("m"))
 
 
+''' lambda + map() :
+    - In the `map()`  function we need a data transformation (a function) and a Iterable.
+    - But previously we were using the built - in functions like `upper()` , `lower()` for the map function argument.
+    - But what if we required a special & custom function where we need to transform to custom transformation.
+    - we can use lambda functions for this types , we will be specifying what we need to do.
+    - lambdas + map() will help us set up the custom data transformation.
+'''
+# Prices are stored as messy strings and need cleaning to floats
+prices = ['$12.89', '$9.99', '$10.75']
+''' 
+    - with the way prices are stored in the list above we cant perform the aggregator operations we need to transform the data
+    - But do we have a In-built function where we can send each item to remove the $ and convert from str type to int type. Answer is 'NO'
+    - we need a custom function in order to do that we write a lambda logic first and hand it to map() to apply it for each item.
+'''
+# Step 1 : always try with one value considering all possible combinations
+'''
+   p = '$12.89'
+   print(float(p.replace('$', '')))
+'''
+
+# Step 2 : If for a single value it has worked use the same logic in the lambda expression and give it to map() or filter()
+# using list way to display
+print(list(map(lambda p: float(p.replace('$', '')), prices)))
+
+# using for loop way to display
+for price in map(lambda p: float(p.replace('$', '')), prices):
+    print(price)
+
