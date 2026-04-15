@@ -75,3 +75,15 @@ print(list(map(lambda p: float(p.replace('$', '')), prices)))
 for price in map(lambda p: float(p.replace('$', '')), prices):
     print(price)
 
+''' lambda + filter()
+    - In filter() function we were using the in built function in order to catch the required data from the Iterables.
+    - But what if we need a custom filter rule then we need to use lambdas to define the filter rule and then use that lambda function
+       for filter function with iterable to make our task easy.
+    - lambdas + `filter()` help us set up the custom data cleanup.
+'''
+# Remove all prices lower than 100
+prices = [120, 30, 300, 80]
+
+print(list(filter(lambda p: p >= 100, prices)))
+
+
