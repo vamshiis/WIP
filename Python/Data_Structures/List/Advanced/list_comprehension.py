@@ -66,3 +66,10 @@ cleaned = [
 ]
 print(cleaned)
 
+# Only Data Filtering
+# Using only the Iterator variable name means no transformation.
+# we can filter the items but we wont be applying data transformation to the filtered Items.
+cleaned = [d for d in domains if '.' in d]
+# No Data Transformation in only filtering feature then include the filtered item only by placing d
+# If not mentioned error will be thrown so must include this block in list comprehension (**required block)
+# At least include data transformation + loop , filtering (optional)
