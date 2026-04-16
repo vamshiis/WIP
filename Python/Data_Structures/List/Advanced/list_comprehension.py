@@ -44,3 +44,15 @@ while True:
         break
 print(multiplied_list)
 
+# TASK - Normalize the domains into standard format
+# Data Transformation + Filtering
+domains = ['www.google.com', 'openai.com', 'loacalhost', 'WWW.ATLASSIAN.COM']
+# Here we need to have a filter to pass valid domains and transform the domains into standard format
+
+cleaned = [
+    d.lower().replace('www.', '')  # Data Transformation
+    for d in domains  # For Loop
+    if '.' in d  # Filtering
+]
+print(cleaned)
+
