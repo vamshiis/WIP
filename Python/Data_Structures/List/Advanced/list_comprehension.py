@@ -56,3 +56,13 @@ cleaned = [
 ]
 print(cleaned)
 
+# Only Data Transformation
+# Excluding optional feature filtering
+# this will ensure to apply data transformation on all items
+cleaned = [
+    d.lower().replace('www.', '')  # Data Transformation
+    for d in domains  # For Loop
+    # Optional -- Filtering
+]
+print(cleaned)
+
