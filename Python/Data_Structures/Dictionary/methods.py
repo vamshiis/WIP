@@ -72,3 +72,16 @@ print(user.items())
 '''
 # print(user)
 
+''' Looping :
+    - By default, iterating over a dictionary only yields the keys because that is how Python's dictionary "iterator" is designed
+    - it assumes the keys are the primary way to navigate the data.
+    - we can only print key, if we want value we need to specify the access method.
+    - so if we use the dictionary as it is for looping we can't do unpacking instantly as it is not a iterable to unpack and moreover it returns us just a key .
+    - .items() gives us the view of tuples which are iterables so we can instantly unpack them in single line and print them.
+'''
+# If dictionary used as it is for looping.
+for u in user:
+    print(u)
+# If we use dictionary view's .items() method in the looping.
+for key, value in user.items():
+    print(key, value)
