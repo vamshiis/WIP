@@ -74,3 +74,108 @@ for k, v in user1.popitem(), :  # A comma after a single item turns it into a tu
     print(k,v)
 print(user1)
 
+''' Creation : 
+    - What if we need the same value for all the keys in a dictionary
+    - we will be constructing the dictionary by specifying all the keys one by one and then repeat the same value.
+    - But to avoid typing ssame thing again and again we have aspecial method to construct such dictionaries in python fromkeys()
+'''
+# Method 1
+user = {
+    'id': None,
+    'name': None,
+    'age': None,
+    'city': None
+}
+
+''' fromkeys() :
+    Syntax : dict.fromkeys([iterable of keys] , deafult_value)
+             - we pass 2 arguments for .fromkeys()
+               1. iterable of keys  - include all the keys who needs the default guy just.
+               2. Default_value - this value will be given to all the keys in the list
+    Output : a new dictionary
+    - Builds a new dictionary where all keys gets the same default value.
+    use case : 
+    - Useful to build the dictionary structure with the default values.
+    - If we want to create a brand new dictionary where we dont know the value of each key just so this can be useful rather than overwriting.
+    - Later when we need to insert value for those we need to update them by targeting the specific keys just.
+'''
+user2 = dict.fromkeys(('id', 'name', 'age', 'city'), None)
+# user3 = dict.fromkeys(['id','name','age','city'],None)
+# user4 = dict.fromkeys({'id','name','age','city'},None)
+# user5 = dict.fromkeys('hello',None)
+print(user2)
+# Later we can update each keys value by specifying them
+user2['age'] = 20
+print(user2)
+
+
+# Real World Applications
+''' 1.use case : DataBase or API Records : 
+    - Returns records are stored as dictionaries where column names are keys and the row values are dictionary values
+'''
+# Representing a single row from a database or API
+row = {
+    'id': 101,
+    'name': 'Catlie',
+    'country': 'SF',
+    'age': 25,
+    'status': 'active'
+}
+
+''' 2. Use Case : Mapping To Friendly Values
+    Great for converting technical codes into friendly lables
+'''
+#  Mapping Translations to Friendly Values
+status_map = {
+    '01': 'Open',
+    '02': 'In Progress',
+    '03':  'Done'
+}
+
+''' 3. Use Case : Mapping Abbrevations
+    Turning short Abbrevations into full readable names.
+'''
+# Mapping Abbrevations
+country_name = {
+    'DE': 'Denmark',
+    'IN': 'India',
+    'FR': 'France'
+}
+
+''' 4. Use Case : config and Environment Data
+    Store System setting like host, port, and usernames in one place.
+'''
+# Storing Environment Variable & configuration
+system_conn = {
+    'DB_HOST': 'prod-db.company',
+    'DB_PORT': 4567,
+    'DB_USER': 'Admin_user',
+    'DB_NAME': 'Sales_analytics'
+}
+''' 5. Use Case : ETL and Pipeline Settings
+    Great for storing run parameters and controlling how your ETL pipeline loads data
+'''
+''' 6. Use Case : Meta Data
+    Data about our Data (structure of the data Schema)
+'''
+
+''' Challenge
+    user = {'id' : 1, 'name': 'john', 'age' : 30, 'city': 'Paris'}
+    1. create New dict
+    2. Keep only pairs with string values
+    3. Convert the Values to Uppercase
+    4. Elegant and short solution
+'''
+''' Dictionary comprehension : 
+    - follows same rules as list comprehension
+    1. Runs a for loop on the dictionary and gets a item each time unpack them just
+    2. Checking for a condition check if the condition is true if yes it goes for data transformation, or else it goes to for loop to get next item.
+    3. Data Transformation write here what you wanna print just and perform the opertion what you wanna see
+'''
+user = {'id': 1, 'name': 'john', 'age': 30, 'city': 'Paris'}
+user_string = {
+    k: v.upper()            # Data Transformation
+    for k, v in user.items()  # Loop
+    if isinstance(v, str)   # Filter
+}
+print(user_string)
