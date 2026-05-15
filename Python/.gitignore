@@ -5,6 +5,7 @@
 # Byte-compiled / optimized / DLL files
 # (Git doesn't need to track the machine code Python generates)
 __pycache__/
+*.pyc
 *.py[cod]
 *$py.class
 
