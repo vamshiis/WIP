@@ -101,9 +101,22 @@ print(arr_zero2)
                                          the output form is [[],[],[]] --> N-D array wrapped in array  
     Return Type: numpy.ndarray filled with zeros.
 '''
-# arr_ones1 = np.ones(5)
-# arr_ones2 = np.ones((2,4))
+arr_ones1 = np.ones(5)
+arr_ones2 = np.ones((2,4))
 
-# print(arr_ones1)
-# print(arr_ones2)
+print(arr_ones1)
+print(arr_ones2)
+
+''' 3.full() :
+    Function
+    Syntax : np.full(shape, fill_value, dtype=None, ...)
+             shape: Dimensions of the array.
+             fill_value: Scalar value to fill the array.
+             dtype = None : Automatically identifies the fill value data types and fill in the same type for dimension specified.
+    Return : numpy.ndarray filled with fill_value.
+'''
+arr_full1 = np.full(5,2) #1D - 5 Values with all have 2
+arr_full2 = np.full((2,3),1.5) # 2D - Matrix with all the values as 1
+print(arr_full1)
+print(arr_full2)
 
