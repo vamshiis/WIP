@@ -120,3 +120,23 @@ arr_full2 = np.full((2,3),1.5) # 2D - Matrix with all the values as 1
 print(arr_full1)
 print(arr_full2)
 
+''' 4. random.rand() & random.randint():
+    Function 
+    Syntax : np.random.rand(d)
+    Return : Returns values between 0 to 1 of d size
+    Syntax : np.random.randint(d,size =(n*n))
+             for 1D size = value
+             for 2D size = (row,column)
+    Return : Return random integers from low (inclusive) to high (exclusive).
+             Return random integers from the "discrete uniform" distribution of the specified dtype in the "half-open" interval [low, high). 
+             If high is None (the default), then results are from [0, low).
+'''
+arr_random1 = np.random.rand(5)
+arr_random2 = np.random.randint(5,size=10) # returns 10 random values from 0 to 5
+arr_random3 = np.random.randint(10,size=(2,2))
+arr_random4 = np.random.randint(2,10,size=(2,2))
+
+print(arr_random1)
+print(arr_random2)
+print(arr_random3)
+print(arr_random4)
