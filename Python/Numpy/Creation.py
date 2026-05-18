@@ -73,4 +73,20 @@ print(arr_linespace2)  # array([1. , 1.2, 1.4, 1.6, 1.8]) --> takes num = num + 
 print(arr_linespace3) # (array([1.  , 1.25, 1.5 , 1.75, 2.  ]), np.float64(0.25))
 print(arr_linespace4)  # (array([1. , 1.2, 1.4, 1.6, 1.8]), np.float64(0.2))
 
+''' Constant and Placeholder Array : '''
+''' 1. zeros()
+    Function
+    Syntax : np.zeros(shape, dtype=float, ...)
+            shape: Integer or tuple of integers defining array dimensions.
+                  for 1D array :
+                     np.zeros(5) --> all the 5 values are float values "0."
+                  for N-D array :
+                     np.zeros((3,3)) --> produces a matrix 3*3 toatl 9 values with 0. values
+                                         the output form is [[],[],[]] --> N-D array wrapped in array  
+    Return Type: numpy.ndarray filled with zeros.
+'''
+arr_zero1 = np.zeros(5)
+arr_zero2 = np.zeros((3,3))
+print(arr_zero1)
+print(arr_zero2)
 
