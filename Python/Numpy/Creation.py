@@ -29,3 +29,48 @@ print(arr_range1)
 print(arr_range2)
 print(arr_range3)
 
+''' 2. linspace() :
+    Function
+    Syntax : np.linspace(start, stop, num=50, endpoint=True, restep(optional)...)
+             start: Starting value.
+             stop: End value.
+             num: Number of samples to generate.
+             endpoint = True (default) : If True includes stop value too for displaying in result
+                                         If false excldes the stop value from displaying as result
+             restep = True : If set to true shows the (samples, spacing between them done)
+
+    Internal help of linespace() function :
+    - We can safely pass them as positional Args or keyword Args 
+        - if positional Args pass it as (start,stop,num)
+        - if keyword Args pass it as (start,stop,num = value)
+    - Even if start and stop are given as int's NumPy immediately handles them as floating-point numbers (1.0 and 2.0) behind the scenes.
+    - Because dividing an interval into equal "cuts" almost always results in decimal values (for example, 1.25, 1.5, 1.75), the np.
+    - linspace function is explicitly designed to always return a numpy.
+    - ndarray with a floating-point data type (float64) by default.
+
+    Return Type: numpy.ndarray which conatin the splitting of number line from start to stop on specified num of value
+                
+            - The endpoint = True vs endpoint = False upon comparison adoesnt yield same outputs, the space between number changes.
+                when endpoint is default
+                 start = 1, stop = 2 ,num(number of cuts) : 4
+                 output : array([1.  , 1.25, 1.5 , 1.75, 2.  ])
+
+                when enpoint = False is set
+                  - the start = 1 , stop = 2 and nums = 5(given)
+                  - In this case when endpoint is false nums taken as nums+1 = 6
+                  - does 6 equal cuts from 1 to 2 [1. ,1.2, 1.4, 1.6, 1.8, 2.0] 
+                  - From this 6 cuts it excludes last one 2.0 and displays [1. , 1.2, 1.4, 1.6, 1.8]
+                  - This rule is followed when endpoint is false and also the numberline from previous i.e, when endpoint = True(default)
+                    that result and this result won't match it will be completely different.
+'''
+arr_linespace1 = np.linspace(1,2,num = 5) # can specify num = 5 or simply 5
+arr_linespace2 = np.linspace(1,2,5,endpoint=False) # 2 is not considered but still it does 5 equal cuts from 1 till before 2
+arr_linespace3 = np.linspace(1.0,2.0,5,retstep=True)  # displays the samples, space_size
+arr_linespace4 = np.linspace(1.0, 2.0, 5,endpoint=False,retstep=True)
+
+print(arr_linespace1)  # array([1.  , 1.25, 1.5 , 1.75, 2.  ])
+print(arr_linespace2)  # array([1. , 1.2, 1.4, 1.6, 1.8]) --> takes num = num + 1 does 6 cuts but choose first 5 as display
+print(arr_linespace3) # (array([1.  , 1.25, 1.5 , 1.75, 2.  ]), np.float64(0.25))
+print(arr_linespace4)  # (array([1. , 1.2, 1.4, 1.6, 1.8]), np.float64(0.2))
+
+
