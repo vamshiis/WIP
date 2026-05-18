@@ -90,3 +90,20 @@ arr_zero2 = np.zeros((3,3))
 print(arr_zero1)
 print(arr_zero2)
 
+''' 2.ones() :
+    Function
+    Syntax : np.ones(shape, dtype=float, ...)
+            shape: Integer or tuple of integers defining array dimensions.
+                  for 1D array :
+                     np.zeros(5) --> all the 5 values are float values "1."
+                  for N-D array :
+                     np.zeros((3,3)) --> produces a matrix 3*3 toatl 9 values with 1. values
+                                         the output form is [[],[],[]] --> N-D array wrapped in array  
+    Return Type: numpy.ndarray filled with zeros.
+'''
+# arr_ones1 = np.ones(5)
+# arr_ones2 = np.ones((2,4))
+
+# print(arr_ones1)
+# print(arr_ones2)
+
