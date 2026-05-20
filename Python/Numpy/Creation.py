@@ -8,9 +8,17 @@ import random
              dtype = None (optional) : The data type (like integer or float) is automatocally guessed when dtype = None.
     output : numpy.ndarray filled with input data
 '''
-arr_list = np.array([1,2,3,4])
+arr_list_1 = np.array([1,2,3,4]) #1D array
+arr_list_2 = np.array([[1,2,3],[4,5,6]]) #1D array
+arr_list_3 = np.array([
+    [[1,2],[3,4]],
+    [[5,6],[7,8]]
+    ]) #    3D array -> (layer,row,column)
+
 arr_tuple = np.array((10,20,30))
-print(arr_list)
+print(arr_list_1)
+print(arr_list_2)
+print(arr_list_3)
 print(arr_tuple)
 
 ''' Using Numerical Ranges : '''
@@ -85,10 +93,12 @@ print(arr_linespace4)  # (array([1. , 1.2, 1.4, 1.6, 1.8]), np.float64(0.2))
                                          the output form is [[],[],[]] --> N-D array wrapped in array  
     Return Type: numpy.ndarray filled with zeros.
 '''
-arr_zero1 = np.zeros(5)
-arr_zero2 = np.zeros((3,3))
-print(arr_zero1)
-print(arr_zero2)
+arr_zero_1 = np.zeros(5) #1D array - specify just required number of values
+arr_zero_2 = np.zeros((3,3)) # 2D array - Specify the (row,column)
+arr_zero_3 = np.zeros((2,2,3))
+print(arr_zero_1)
+print(arr_zero_2)
+print(arr_zero_3)
 
 ''' 2.ones() :
     Function
@@ -101,11 +111,13 @@ print(arr_zero2)
                                          the output form is [[],[],[]] --> N-D array wrapped in array  
     Return Type: numpy.ndarray filled with zeros.
 '''
-arr_ones1 = np.ones(5)
-arr_ones2 = np.ones((2,4))
+arr_ones_1 = np.ones(5)
+arr_ones_2 = np.ones((2,4))
+arr_ones_3 = np.ones((2, 2, 3))
 
-print(arr_ones1)
-print(arr_ones2)
+print(arr_ones_1)
+print(arr_ones_2)
+print(arr_ones_3)
 
 ''' 3.full() :
     Function
