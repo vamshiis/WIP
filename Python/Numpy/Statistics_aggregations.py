@@ -233,3 +233,45 @@ matrix_3d = np.array([
 
 print(matrix_3d.mean(axis=0, keepdims=True))
 
+''' argmin() and argmax() :
+    Global Numpy Function or Object Method
+    Syntax : np.argmin(array_object) / np.argmax(array_object)
+    Return :
+     - An integer (scalar) if searching a flattened array, <or> 
+     - An ndarray of integers if searching along an axis.
+    - Instead of returning the minimum or maximum value itself, they scan the memory block and return the index position (coordinate) where that extreme value lives.
+    2D array :
+    - axis=0:
+       - Compares different rows within the same column (Row 0, Col 0 vs. Row 1, Col 0). 
+       - It captures the winning row index.
+    - axis=1: 
+       - Compares same row across different columns (Row 0, Col 0 vs. Row 0, Col 1). 
+       - It captures the winning column index.
+    - If you pass a 2D matrix into np.argmax() without specifying an axis, it will treat the array as if it was completely 
+      flattened into a 1D array and give you a single integer index. 
+    - To map this index back to 2D coordinates, you have to use a separate function called np.unravel_index().
+    -  Always specify an axis on multi-dimensional data to avoid this confusion.
+'''
+monthly_revenue = np.array([12000, 15000, 9000, 21000, 14000])
+print(np.argmax(monthly_revenue))
+print(np.argmin(monthly_revenue))
+
+monthly_revenue_sales = np.array([[12000, 15000],
+                                  [9000, 21000]])
+# flattens 2d array to 1d array like [12000,15000,9000,21000] and from this max element sits at index 3 output: 3
+print(np.argmax(monthly_revenue_sales))
+'''
+check on row level for different row same col are compared to give us max value among both.
+comparison: argmax on axis = 0
+>> row 0 col 0 = 12000 and row 1 col 0 = 9000 --> among both the max is at 0 index (row index)
+>> row 0 col 1 = 15000 and row 1 col 1 = 21000 --> among both the max is at 1 index (row index)
+argmin on axis = 0
+>> row 0 col 0 = 12000 and row 1 col 0 = 9000 --> among both the min is at  1 index (row index)
+>> row 0 col 1 = 15000 and row 1 col 1 = 21000 --> among both the max is at 0 index (row index)
+
+- similarly for axis 1 compares same row different columns values for both argmin and argmax 
+'''
+print(np.argmax(monthly_revenue_sales, axis=0))
+print(np.argmin(monthly_revenue_sales, axis=0))
+print(np.argmax(monthly_revenue_sales, axis=1))
+print(np.argmin(monthly_revenue_sales, axis=1))
