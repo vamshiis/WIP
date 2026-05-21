@@ -169,3 +169,67 @@ print("Axis 2 Keep :\n", matrix_3d.sum(axis=2, keepdims=True))
 print("Axis 2 Keep Shape:", matrix_3d.sum(axis=2, keepdims=True).shape)
 
 
+''' mean(),median(),std(),var() : 
+    These are all Global Functions and can also be used as methods on array_object 
+    Syntax : np.mean() or arr.mean()
+    Return :
+       A scalar value (if applied to the whole array)
+         <OR> 
+       an ndarray (if an axis parameter is provided).
+    - Compute basic descriptive statistics across the entire array, or along a specific axis.
+    - These standard functions are not safe against missing data (NaN). 
+    - If your dataset has even a single missing value (NaN), running np.mean() or np.std() will immediately return NaN as the result, ruining your calculation.
+    - NumPy provides twin functions specifically designed to ignore missing values: np.nanmean(), np.nanmedian(), np.nanstd(), and np.nanvar(). 
+    - They drop the missing values on the fly during vectorization.
+'''
+sales_1 = np.array([10, 20, 300, 4000])
+print(np.mean(sales_1))
+
+sales_2 = np.array([200, 450, np.nan, 300])
+print(sales_2.mean())  # nan -> Total Breakdown
+
+# The optimized fix :
+# specifying the float precision to print way
+''' 
+ np.set_printoptions() (Visual Display Only)
+ - If you want to keep the absolute maximum precision intact for your backend calculations 
+   but want clean screen output limited to 2 decimals, change NumPy's global rendering engine using precision=2.
+   import numpy as np
+
+# Set the global display format configuration
+np.set_printoptions(precision=2, suppress=True)
+
+data = np.array([3.14159265, 0.00001234])
+print(data)
+# Output: [3.14 0.  ]
+
+'''
+# np.set_printoptions(precision=2,suppress=True)
+# data = np.array([3.14159, 2.71828])
+# print(data)
+# print(np.nanmean(sales_2,keepdims=True))
+
+
+# standard way to precise the decimal count in float values
+print(f'{np.nanmean(sales_2):.2f}')
+#  nanmean() is a function of module numpy its not a method for array_object
+# So don't try to write arr_object.nanmean() it will throw error as ndarray object dont recognize this method on the object.
+# we can use np.nanmean(array_object) the module contains the function nanmean().
+matrix_2d = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+
+# shrinks column to single value by adding them up
+print(np.median(matrix_2d, axis=1))
+# next calculates median by doing calculatedvalue / no.of values in that row
+# row 1 : 1+2+3 = 6 => median = 6/3 = 2.0 (return float values)
+# row 2 : 4+5+6 = 15 => median = 15/3 =5.0
+
+matrix_3d = np.array([
+    [[1, 1, 1], [2, 2, 2]],  # Layer 0
+    [[3, 3, 3], [4, 4, 4]]   # Layer 1
+])
+
+print(matrix_3d.mean(axis=0, keepdims=True))
+
