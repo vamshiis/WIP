@@ -278,3 +278,55 @@ so why do we end up getting new array_object when we add a new row rather than r
     - You can alter the numbers inside the box as much as you want, but the second you try to change 
       the physical size of the box, NumPy will preserve the original, allocate new memory, and hand you back a modified copy 
 '''
+''' Splitting Arrays : 
+    Splitting is the exact opposite of combining. we take one large array and sllice it into a list of smaller sub-arrays.
+    split():
+    Global Numpy Function
+    Syntax : np.split(array_object,split_value,axis=value)
+    Return : A standard Python list containing Numpy ndarray objects.
+    - split() cuts an array into multiple equal-sized sub-arrays along a specific axis.
+    Memory Behaviour : 
+    - Returns Views!! 
+    - Numpy doesn't create new copies when we split an array, it simply points to sections of the original array.
+    - If we modify the split chunk, the original array too changes.
+    Trap : 
+    - We must split the array into equal parts.
+    - If we have an array with 5 elements and tell Numpy to split into 2 parts, 
+      it will crash with a valueError because 5 cannot be divded equally by 2
+    - so split the axis which gives us array_object.shape[axis] % split value == 0, other wise it throws an error just.
+'''
+# 1D Array Splitting
+arr_1d = np.arange(10, 61, 10)
+# split into 3 equal parts note : axis = 0 for 1d array by default.
+parts_1d = np.split(arr_1d, 3)
+print(parts_1d)
+
+# 2D Array Splitting
+# Just like combining, we can split 2D Arrays Horizontally and Vertically
+
+# Vertical Splitting (axis = 0 or np.vsplit) --> Cuts the matrix horizontally, Means separating the rows.
+arr_2d = np.arange(1, 17).reshape(4, 4)
+parts_2d = np.split(arr_2d, 2, axis=0)
+print(parts_2d)
+
+# Horizontal splitting (axis = 1 or np.hsplit) --> Cuts the matrix vertically, separating the columns.
+
+mat_2d = np.arange(1, 17).reshape(4, 4)
+parts_mat = np.split(mat_2d, 2, axis=1)
+print(parts_mat)
+''' Individual element access inside the split part.
+- we will be having 0,1,2,..n-1 where n is split value indexes to access the split parts.
+- so to access the elements inside parts we specify which part and then [row,column]
+- In above exam we split the 2D array into 2 parts based on column so we have 2 parts we can access 
+- first part via index [0] and second part via index[1]
+- now after the part is accessed to go deeper into this part and access the element we specify the [row,column]
+- Before accessing elements try to get the idea of the part it has cut out in order to give correct index to access.
+syntax to access inner elements:
+split_object[part_index][row,column]
+'''
+# It made 2 parts so I accessed 1st part via index 0
+# next to get inner element I checked the shape and targetted the correct element.
+print(parts_mat[0])
+print(parts_mat[0].shape)
+# Access element 6 from part 1
+print(parts_mat[0][1, 1])
