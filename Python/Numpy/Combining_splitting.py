@@ -330,3 +330,80 @@ print(parts_mat[0])
 print(parts_mat[0].shape)
 # Access element 6 from part 1
 print(parts_mat[0][1, 1])
+
+''' 3D Array Splitting (The Retail Cube) :
+    - we have a retail data cube created in which we had 2 stores data with 4 departments over 4 weeks metrics.
+    - so now we can split it across axis=0 --> layer 
+       - To get the store A and StoreB data seperately 
+       - most likely we end up using split in 3d for this reason to separate each individulas data which resembles.
+          we can hold store_A data and store_B data just.
+    - if splitted across axis = 1 --> row
+        - we can get the each stores departments splitted with performance data over the 4 weeks
+    - if splitted across axis = 2 --> column
+        - we can get each stores and 
+ '''
+
+cube_3d = np.empty((2, 4, 4), dtype=int)
+cube_3d[0].fill(1)
+cube_3d[1].fill(2)
+# print(cube_3d)
+
+# cut stores
+part_store = np.split(cube_3d, 2, axis=0)
+# print(part_store)
+print('Store_A data:\n', part_store[0])
+print('Store_B data:\n', part_store[1])
+
+# Department cuts
+# show me first 2 departments metric of all weeks in both the stores side by side
+part_departments = np.split(cube_3d, 2, axis=1)
+# print(part_departments)
+# print(part_departments[0]) # index 0 holds the first 2 departments(electronic,clothing) and index 1 holds other 2 departments(grossery,inventory) metrics
+print('Store_A_B first_2 department\'s data over 4_weeks:\n',
+      part_departments[0])
+''' Store_A_B first_2 department's data over 4_weeks:
+ [[[1 1 1 1] --> Store_A electronics department
+  [1 1 1 1]] --> Store_A Clothing department
+
+ [[2 2 2 2]    --> Store_B electronics Department
+  [2 2 2 2]]]  --> Store_B Clothing Department
+'''
+print('Store_A_B last_2 department\'s data over 4_weeks:\n',
+      part_departments[1])
+''' Store_A_B first_2 department's data over 4_weeks:
+ [[[1 1 1 1] --> Store_A Grossary department
+  [1 1 1 1]] --> Store_A Inventory department
+
+ [[2 2 2 2]    --> Store_B Grossary Department
+  [2 2 2 2]]]  --> Store_B Inventory Department
+'''
+# print('Store_B data:\n', part_departments[1])
+
+# Get only Store A electronic department value metrics over 4 week
+# electronics falls under first_2 part so we have the required data in index 0 of cut part
+# we have store_A data in layer 1 , electronics sits at row 1
+#  so part need to be accessed is 0
+#  store need to Access is at 0
+#  department need to accessed is at 0
+# Main task is to find under which part the required data is present then after we can give see the required data as 3d data and access them based on it
+print('Store_A Electronic Department metrics over 4_weeks :\n',
+      part_departments[0, 0, 0])
+
+# Access the Grocessary department of store_B
+print('Store_B Grossary Department metrics over 4_weeks :\n',
+      part_departments[1, 1, 0])
+
+# Week cuts
+part_weeks = np.split(cube_3d, 2, axis=2)
+# print(part_weeks)
+print('Store_A_B All departments week_1_2 performance metrics:\n',
+      part_weeks[0])
+print('Store_A_B All departments week_3_4 performance metrics:\n',
+      part_weeks[1])
+
+# Rather struggling to access said indexs in split parts but good to have knowledge of them.
+# Access them via original 3D data cube itself
+# Specify store index, department index to get specific stores departments all week performace's metric
+print(cube_3d[1, 2])
+# Specify store index, department index, week index to get specific stores departments specific week value
+print(cube_3d[1, 1,3])
