@@ -74,12 +74,12 @@ Final Calculation (Direct Element-wise Vectorization):
  [ 9+10, 10+20, 11+30, 12+40]]
 '''
 #  1D + 2D row stretch
-# array_a = np.array([10,20,30,40]) #shape (4,)
-# matrix_a = np.array([[1,  2,  3,  4],            
-#                      [5,  6,  7,  8],
-#                      [9, 10, 11, 12]]) #shape (3,4)
-# add_operation = array_a + matrix_a
-# print(add_operation) # Does successful broadcast and returns the (3,4) resultant matrix as output. so by this we can understand the stretch was happened
+array_a = np.array([10,20,30,40]) #shape (4,)
+matrix_a = np.array([[1,  2,  3,  4],            
+                     [5,  6,  7,  8],
+                     [9, 10, 11, 12]]) #shape (3,4)
+add_operation = array_a + matrix_a
+print(add_operation) # Does successful broadcast and returns the (3,4) resultant matrix as output. so by this we can understand the stretch was happened
 
 ''' Scenario 2: The 1D + 2D Total Dimension Mismatch (Immediate Crash) : 
     
@@ -140,9 +140,9 @@ Final Calculation:
 -> we have forced the 1d array rather to be (1,3) -> 1 row three columns to be (3,1) three rows and 1 colums.
 -> so that can support the stretch rule of matrix whose dimensions are (3,4) we can simply now stretch the columns to 4 easily.
 '''
-# matrix_2d = np.arange(1,13).reshape(3,4)
-# col_1d = np.array([10,20,30])[:, np.newaxis] #shape (3,1)
-# print(matrix_2d + col_1d)
+matrix_2d = np.arange(1,13).reshape(3,4)
+col_1d = np.array([10,20,30])[:, np.newaxis] #shape (3,1)
+print(matrix_2d + col_1d)
 
 
 ''' Scenario 4: The 3D Advanced Stretch (Data Analytics Scenario)
