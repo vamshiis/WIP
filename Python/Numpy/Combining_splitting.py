@@ -247,3 +247,34 @@ cube_6_weeks = np.concatenate((cube_4_depts, new_weeks_cols), axis=2)
 
 print('\n Added week 4 and 5 performance metrics for all store\'s departments :\n', cube_6_weeks)
 
+''' There Can be a doubt??
+If in memory the array data is stored as a chain of values in memory [ row_0_col_0 --> row_0_col_1 -->.... -> row_1_col_0...row_n_col_n ] values
+When we add up a new row to the exsisting array why do we still get a new array_object??
+Btw the exsisting array_object is copied first and then new_array object is then combined to it in concatenation internal working.
+so why do we end up getting new array_object when we add a new row rather than returning us a view of the array_object itself.
+    Answer to the doubt :
+    • Contiguous Memory Chain Constraint 
+       - In RAM directly after out last element of the array stored, other programs or variables are already using that memory space. 
+          Because RAM is packed tightly.
+          Internal view of memory :
+                  [ Existing Array Memory Chain (6 elements) ] [ Corrupting Data / Other Python Variables ]
+                                                              ^
+                               we want to add new values here but,No free space is left here!
+        - Because Numpy cannot predict if there is a space at the end of the chain, it can never just append or stretch the exsisting chainin place.
+        - If it tried to force new elements into row or column of the exsisting array without moving it, it would overwrite the active variables
+          in your computer and crash your system.
+    • The overwriting Rule vs. Combining Rule :
+        1.Overwriting(Allowed In-Place) : If we are changing values without changing the shape (arr[0,0] = 99),Numpy handles them instantly in-place.
+                                          It simply goes to the exact link in the exsisting chain and overwrites the binary data. The Memory Address 
+                                          and shape stay exactly the same.
+        2.Combining(Forced Copy) : The moment we try to introduce a foreign entry or add a single new element, we are breaking the original chain length
+                                   Because it cannot grow in place, Numpy is forced to:
+                                • Find a completely vacant, larger block of RAM elsewhere.
+                                • Copy the original array's chain into the start of the new block.
+                                • Copy the foreign entry's data right next to it to complete the new shape.
+                                • Leave the original array completely untouced and preserved at its old memory address.
+
+    REMEMBER!!! NumPy allows mutability of values, but it enforces total immutability of structure.               
+    - You can alter the numbers inside the box as much as you want, but the second you try to change 
+      the physical size of the box, NumPy will preserve the original, allocate new memory, and hand you back a modified copy 
+'''
