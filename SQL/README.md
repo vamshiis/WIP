@@ -6,7 +6,9 @@
 
 Welcome to the Database Engine Room! This directory contains my daily scripts, queries, and architectural practice. 
 
-**Note on Cross-Compatibility:** While my current focus and environment utilize **Microsoft SQL Server (SSMS)**, the core SQL logic, execution orders, and foundational syntaxes I am mastering here are highly transferable and allow me to confidently handle **MySQL** and **PostgreSQL** databases as well.
+**Note on Cross-Compatibility:** While my current focus and environment utilize **Microsoft SQL Server (SSMS)**, the core SQL logic, execution orders, 
+
+and foundational syntaxes I am mastering here are highly transferable and allow me to confidently handle **MySQL** and **PostgreSQL** databases as well.
 
 ---
 
@@ -14,18 +16,32 @@ Welcome to the Database Engine Room! This directory contains my daily scripts, q
 
 Here is a breakdown of the core SQL mechanics I am currently utilizing in this workspace:
 
-🔹 **The SQL Engine (Order of Execution)** Understanding that how we *write* SQL is different from how the machine *reads* it. *(e.g., The engine processes `FROM` and `WHERE` before it ever looks at `SELECT`!).*
+🔹 **The SQL Engine (Order of Execution)** 
 
-🔹 **DDL (Data Definition Language)** Architecting the actual database structures.
+Understanding that how we *write* SQL is different from how the machine *reads* it. 
+
+*(e.g., The engine processes `FROM` and `WHERE` before it ever looks at `SELECT`!).*
+
+🔹 **DDL (Data Definition Language)** 
+
+Architecting the actual database structures.
+
 ↳ `CREATE`, `ALTER`, `DROP`, and `TRUNCATE` tables and schemas.
 
-🔹 **DML (Data Manipulation Language)** Controlling the data that lives inside the structures.
+🔹 **DML (Data Manipulation Language)** 
+
+Controlling the data that lives inside the structures.
+
 ↳ `INSERT` (adding records), `UPDATE` (modifying existing data), and `DELETE` (removing rows).
 
 🔹 **Precision Filtering** Using the `WHERE` clause to surgically extract specific data sets using logical operators:
+
 ↳ **Comparisons:** `=`, `<`, `>`, `<=`, `>=`
+
 ↳ **Ranges & Lists:** `BETWEEN`, `IN`
+
 ↳ **Pattern Matching:** `LIKE` (using `%` and `_` wildcards)
+
 ↳ **Logical Chaining:** `AND`, `OR`, `NOT`
 
 ---
