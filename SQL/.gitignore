@@ -1,0 +1,16 @@
+# ==========================================
+# SQL Server Specific
+# ==========================================
+
+# Ignore raw database files and logs
+*.mdf
+*.ldf
+*.ndf
+
+# Ignore backup files (These are huge and should never be pushed!)
+*.bak
+*.trn
+
+# Ignore temporary query results or exported data
+*.csv
+*.xlsx
